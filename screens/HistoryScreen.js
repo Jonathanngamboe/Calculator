@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, FlatList} from 'react-native';
 
 export default function HistoryScreen({route}) {
     const { history } = route.params;
-    console.log(history);
 
     return (
         <View style={styles.container}>
@@ -11,6 +10,7 @@ export default function HistoryScreen({route}) {
                 data={history} 
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }) => <Text style={styles.text}>{item.key}</Text>} 
+                ListEmptyComponent={<Text style={styles.text}>No history</Text>}
             />
         </View>
     );
